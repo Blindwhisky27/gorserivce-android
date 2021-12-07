@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:background="@drawable/theme_button"
-        android:text="next" />
+        android:text="@string/next" />
 
 
 </LinearLayout>

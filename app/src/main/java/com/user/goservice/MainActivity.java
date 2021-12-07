@@ -16,8 +16,10 @@ public class MainActivity extends AppCompatActivity {
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             Intent intent = new Intent(this, AuthenticationActivity.class);
             startActivity(intent);
-        }else{
-            
+        } else {
+            Intent intent = new Intent(this, NavigationActivity.class)
+                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
         }
     }
 }

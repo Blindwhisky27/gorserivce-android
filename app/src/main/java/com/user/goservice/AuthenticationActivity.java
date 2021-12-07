@@ -53,36 +53,7 @@ public class AuthenticationActivity extends AppCompatActivity {
         }
     }
 
-    private void sendOtp(String phoneNumber) {
-        PhoneAuthOptions options =
-                PhoneAuthOptions.newBuilder(firebaseAuth)
-                        .setPhoneNumber("+91" + phoneNumber)       // Phone number to verify
-                        .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-                        .setActivity(this)                 // Activity (for callback binding)
-                        .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
-                            @Override
-                            public void onVerificationCompleted(PhoneAuthCredential credential) {
-
-                            }
-
-                            @Override
-                            public void onVerificationFailed(FirebaseException e) {
-                                Toast.makeText(AuthenticationActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-                            }
-
-                            @Override
-                            public void onCodeSent(@NonNull String verificationId,
-                                                   @NonNull PhoneAuthProvider.ForceResendingToken token) {
-                                Intent intent = new Intent(getApplicationContext(), OtpActivity.class)
-                                        .putExtra("PhoneNumber", phoneNumber)
-                                        .putExtra("verificationCode", verificationId);
-                                startActivity(intent);
-                            }
-                        })
-                        .build();
-        PhoneAuthProvider.verifyPhoneNumber(options);
-    }
 
 
 }

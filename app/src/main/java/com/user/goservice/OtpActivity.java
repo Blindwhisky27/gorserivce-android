@@ -1,5 +1,6 @@
 package com.user.goservice;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -89,6 +90,14 @@ public class OtpActivity extends AppCompatActivity {
                         public void onComplete(@NonNull @org.jetbrains.annotations.NotNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(OtpActivity.this, "Login successfull", Toast.LENGTH_SHORT).show();
+                                Intent intent;
+                                if (isUserNew())
+                                    intent = new Intent(getApplicationContext(), AddUserActivity.class)
+                                            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                else
+                                    intent = new Intent(getApplicationContext(), NavigationActivity.class)
+                                            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
                             } else {
                                 otpTextView.setError("Wrong otp");
                                 verifyButton.setEnabled(true);
@@ -98,6 +107,10 @@ public class OtpActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private boolean isUserNew() {
+
     }
 
     private void sendOtp(String phoneNumber) {
