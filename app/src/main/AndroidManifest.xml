@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Goservice">
-        <activity android:name=".NavigationActivity"></activity>
+        <activity android:name=".AddUserActivity"></activity>
+        <activity android:name=".NavigationActivity" />
         <activity android:name=".OtpActivity" />
         <activity android:name=".AuthenticationActivity" />
         <!--
