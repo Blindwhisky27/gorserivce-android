@@ -45,7 +45,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/nextButton"
+        android:id="@+id/verifyButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/resendTextView"
