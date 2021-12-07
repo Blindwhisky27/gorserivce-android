@@ -8,4 +8,7 @@
     <string name="enter_otp">Enter Otp</string>
     <string name="resend"><u>Resend</u></string>
     <string name="verify">Verify</string>
+    <string name="email_text">Email</string>
+    <string name="referral_code">Referral code</string>
+    <string name="next">next</string>
 </resources>
