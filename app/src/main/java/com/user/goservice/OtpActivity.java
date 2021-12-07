@@ -12,10 +12,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.util.concurrent.TimeUnit;
 
 public class OtpActivity extends AppCompatActivity {
     String PhoneNumber, verificationCode;
@@ -35,8 +41,37 @@ public class OtpActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         PhoneNumber = getIntent().getStringExtra("PhoneNumber");
-        verificationCode = getIntent().getStringExtra("verificationCode");
 
+        sendOtp(PhoneNumber);
+        resendTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PhoneAuthOptions.Builder options =
+                        PhoneAuthOptions.newBuilder(firebaseAuth)
+                                .setPhoneNumber("+91" + PhoneNumber)       // Phone number to verify
+                                .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+                                .setActivity(OtpActivity.this)                 // Activity (for callback binding)
+                                .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+
+                                    @Override
+                                    public void onVerificationCompleted(@NotNull PhoneAuthCredential credential) {
+
+                                    }
+
+                                    @Override
+                                    public void onVerificationFailed(@NotNull FirebaseException e) {
+                                        Toast.makeText(OtpActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                                    }
+
+                                    @Override
+                                    public void onCodeSent(@NonNull String verificationId,
+                                                           @NonNull PhoneAuthProvider.ForceResendingToken token) {
+                                        mResendToken = token;
+                                        Toast.makeText(OtpActivity.this, "Otp resent successfully", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+            }
+        });
         verifyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,4 +95,34 @@ public class OtpActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void sendOtp(String phoneNumber) {
+        PhoneAuthOptions options =
+                PhoneAuthOptions.newBuilder(firebaseAuth)
+                        .setPhoneNumber("+91" + phoneNumber)       // Phone number to verify
+                        .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+                        .setActivity(this)                 // Activity (for callback binding)
+                        .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+
+                            @Override
+                            public void onVerificationCompleted(@NotNull PhoneAuthCredential credential) {
+
+                            }
+
+                            @Override
+                            public void onVerificationFailed(@NotNull FirebaseException e) {
+                                Toast.makeText(OtpActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                            }
+
+                            @Override
+                            public void onCodeSent(@NonNull String verificationId,
+                                                   @NonNull PhoneAuthProvider.ForceResendingToken token) {
+                                mResendToken = token;
+                            }
+                        })
+                        .build();
+        PhoneAuthProvider.verifyPhoneNumber(options);
+    }
+
+
 }

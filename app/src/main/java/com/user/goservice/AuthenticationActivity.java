@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -46,7 +45,9 @@ public class AuthenticationActivity extends AppCompatActivity {
         if (phoneNumber.isEmpty()) {
             phoneNoTextView.setError("Please enter a number");
         } else {
-            sendOtp(phoneNumber);
+            Intent intent = new Intent(getApplicationContext(), OtpActivity.class)
+                    .putExtra("PhoneNumber", phoneNumber);
+            startActivity(intent);
 
         }
     }
@@ -54,7 +55,7 @@ public class AuthenticationActivity extends AppCompatActivity {
     private void sendOtp(String phoneNumber) {
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(firebaseAuth)
-                        .setPhoneNumber(phoneNumber)       // Phone number to verify
+                        .setPhoneNumber("+91" + phoneNumber)       // Phone number to verify
                         .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
                         .setActivity(this)                 // Activity (for callback binding)
                         .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
