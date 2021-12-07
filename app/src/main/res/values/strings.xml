@@ -5,4 +5,7 @@
     <string name="Project_name">Goservice</string>
     <string name="user_login_image">user login image</string>
     <string name="phone_number">Phone number</string>
+    <string name="enter_otp">Enter Otp</string>
+    <string name="resend"><u>Resend</u></string>
+    <string name="verify">Verify</string>
 </resources>
