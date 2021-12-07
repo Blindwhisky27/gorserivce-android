@@ -35,7 +35,7 @@ public class OtpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
 
-        otpTextView = findViewById(R.id.phoneText);
+        otpTextView = findViewById(R.id.otpText);
         resendTextView = findViewById(R.id.resendTextView);
         Button verifyButton = findViewById(R.id.verifyButton);
         firebaseAuth = FirebaseAuth.getInstance();
@@ -46,6 +46,7 @@ public class OtpActivity extends AppCompatActivity {
         resendTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                verifyButton.setEnabled(true);
                 PhoneAuthOptions.Builder options =
                         PhoneAuthOptions.newBuilder(firebaseAuth)
                                 .setPhoneNumber("+91" + PhoneNumber)       // Phone number to verify
@@ -67,6 +68,7 @@ public class OtpActivity extends AppCompatActivity {
                                     public void onCodeSent(@NonNull String verificationId,
                                                            @NonNull PhoneAuthProvider.ForceResendingToken token) {
                                         mResendToken = token;
+
                                         Toast.makeText(OtpActivity.this, "Otp resent successfully", Toast.LENGTH_SHORT).show();
                                     }
                                 });
@@ -80,6 +82,7 @@ public class OtpActivity extends AppCompatActivity {
                     otpTextView.setError("Enter a otp");
 
                 } else {
+                    verifyButton.setEnabled(false);
                     PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCode, code);
                     firebaseAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -88,6 +91,7 @@ public class OtpActivity extends AppCompatActivity {
                                 Toast.makeText(OtpActivity.this, "Login successfull", Toast.LENGTH_SHORT).show();
                             } else {
                                 otpTextView.setError("Wrong otp");
+                                verifyButton.setEnabled(true);
                             }
                         }
                     });
@@ -118,6 +122,8 @@ public class OtpActivity extends AppCompatActivity {
                             public void onCodeSent(@NonNull String verificationId,
                                                    @NonNull PhoneAuthProvider.ForceResendingToken token) {
                                 mResendToken = token;
+                                verificationCode = verificationId;
+                                Toast.makeText(OtpActivity.this, "Otp sent", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .build();

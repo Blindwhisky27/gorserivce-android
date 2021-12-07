@@ -22,15 +22,15 @@ public class AuthenticationActivity extends AppCompatActivity {
 
     private EditText phoneNoTextView;
     private FirebaseAuth firebaseAuth;
-    private String mVerificationId;
     private PhoneAuthProvider.ForceResendingToken mResendToken;
+    private Button nextButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authentication);
         phoneNoTextView = findViewById(R.id.phoneText);
-        Button nextButton = findViewById(R.id.nextButton);
+        nextButton = findViewById(R.id.nextButton);
         firebaseAuth = FirebaseAuth.getInstance();
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +45,7 @@ public class AuthenticationActivity extends AppCompatActivity {
         if (phoneNumber.isEmpty()) {
             phoneNoTextView.setError("Please enter a number");
         } else {
+            nextButton.setEnabled(false);
             Intent intent = new Intent(getApplicationContext(), OtpActivity.class)
                     .putExtra("PhoneNumber", phoneNumber);
             startActivity(intent);
