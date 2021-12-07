@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">goservice</string>
     <string name="title_activity_maps">Map</string>
+    <string name="logo_description">App logo</string>
 </resources>
