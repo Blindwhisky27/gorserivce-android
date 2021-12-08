@@ -19,6 +19,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -89,15 +94,9 @@ public class OtpActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull @org.jetbrains.annotations.NotNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(OtpActivity.this, "Login successfull", Toast.LENGTH_SHORT).show();
-                                Intent intent;
-                                if (isUserNew())
-                                    intent = new Intent(getApplicationContext(), AddUserActivity.class)
-                                            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                else
-                                    intent = new Intent(getApplicationContext(), NavigationActivity.class)
-                                            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                startActivity(intent);
+                                Toast.makeText(OtpActivity.this, "Login succesfull", Toast.LENGTH_SHORT).show();
+                                retriveUserData();
+
                             } else {
                                 otpTextView.setError("Wrong otp");
                                 verifyButton.setEnabled(true);
@@ -109,8 +108,32 @@ public class OtpActivity extends AppCompatActivity {
         });
     }
 
-    private boolean isUserNew() {
+    private void retriveUserData() {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        String uid = mAuth.getCurrentUser().getUid();
 
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                System.out.println("OTA: Inside retrive");
+                Intent intent;
+                if (!snapshot.hasChild("Name"))
+                    intent = new Intent(getApplicationContext(), AddUserActivity.class)
+                            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                else
+                    intent = new Intent(getApplicationContext(), NavigationActivity.class)
+                            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+                Toast.makeText(OtpActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void sendOtp(String phoneNumber) {

@@ -17,7 +17,9 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, AuthenticationActivity.class);
             startActivity(intent);
         } else {
-            Intent intent = new Intent(this, NavigationActivity.class)
+            FirebaseAuth.getInstance().signOut();
+
+            Intent intent = new Intent(this, AuthenticationActivity.class)
                     .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
