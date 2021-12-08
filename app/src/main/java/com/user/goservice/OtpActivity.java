@@ -96,8 +96,6 @@ public class OtpActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 Toast.makeText(OtpActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
                                 retriveUserData();
-
-
                             } else {
                                 otpTextView.setError("Wrong otp");
                                 verifyButton.setEnabled(true);
@@ -114,17 +112,8 @@ public class OtpActivity extends AppCompatActivity {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         String uid = mAuth.getCurrentUser().getUid();
 
-        Toast.makeText(this, uid, Toast.LENGTH_SHORT).show();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(uid);
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("users").child(uid).child("username").setValue("name").addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull @NotNull Task<Void> task) {
-                if (task.isSuccessful())
-                    Toast.makeText(getApplicationContext(), "Wirte yes", Toast.LENGTH_SHORT).show();
-                else Toast.makeText(getApplicationContext(), "Wirte no", Toast.LENGTH_SHORT).show();
-            }
-        });
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
