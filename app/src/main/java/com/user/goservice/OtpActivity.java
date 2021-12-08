@@ -94,8 +94,9 @@ public class OtpActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull @org.jetbrains.annotations.NotNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(OtpActivity.this, "Login succesfull", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(OtpActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
                                 retriveUserData();
+
 
                             } else {
                                 otpTextView.setError("Wrong otp");
@@ -109,29 +110,38 @@ public class OtpActivity extends AppCompatActivity {
     }
 
     private void retriveUserData() {
+
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         String uid = mAuth.getCurrentUser().getUid();
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        Toast.makeText(this, uid, Toast.LENGTH_SHORT).show();
 
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.child("users").child(uid).child("username").setValue("name").addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull @NotNull Task<Void> task) {
+                if (task.isSuccessful())
+                    Toast.makeText(getApplicationContext(), "Wirte yes", Toast.LENGTH_SHORT).show();
+                else Toast.makeText(getApplicationContext(), "Wirte no", Toast.LENGTH_SHORT).show();
+            }
+        });
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                System.out.println("OTA: Inside retrive");
                 Intent intent;
-                if (!snapshot.hasChild("Name"))
+                if (!snapshot.exists()) {
                     intent = new Intent(getApplicationContext(), AddUserActivity.class)
                             .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                else
+                } else {
                     intent = new Intent(getApplicationContext(), NavigationActivity.class)
                             .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                }
                 startActivity(intent);
             }
 
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
-                Toast.makeText(OtpActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+
             }
         });
     }
