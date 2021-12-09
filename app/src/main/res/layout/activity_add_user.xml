@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/logo"
                 android:layout_margin="20dp"
-                android:hint="@string/phone_number"
+                android:hint="@string/username"
                 android:textColorHint="#000000"
                 app:boxStrokeColor="#12213b">
 
@@ -60,30 +60,14 @@
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/referralLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/emailLayout"
-                android:layout_margin="20dp"
-                android:hint="@string/referral_code"
-                android:textColorHint="#000000"
-                app:boxStrokeColor="#12213b">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/referralText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName" />
-            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/nextButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
-                android:layout_below="@+id/referralLayout"
+                android:layout_below="@+id/emailLayout"
                 android:background="@drawable/theme_button"
                 android:text="@string/next" />
         </RelativeLayout>

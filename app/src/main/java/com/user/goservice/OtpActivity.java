@@ -120,7 +120,8 @@ public class OtpActivity extends AppCompatActivity {
                 Intent intent;
                 if (!snapshot.exists()) {
                     intent = new Intent(getApplicationContext(), AddUserActivity.class)
-                            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK)
+                            .putExtra("phoneNumber",PhoneNumber);
                 } else {
                     intent = new Intent(getApplicationContext(), NavigationActivity.class)
                             .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
