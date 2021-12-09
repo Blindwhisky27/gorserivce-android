@@ -13,12 +13,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-      // new Task().execute();
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             Intent intent = new Intent(this, AuthenticationActivity.class);
             startActivity(intent);
         } else {
-          FirebaseAuth.getInstance().signOut();
+            FirebaseAuth.getInstance().signOut();
 
             Intent intent = new Intent(this, AuthenticationActivity.class)
                     .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
