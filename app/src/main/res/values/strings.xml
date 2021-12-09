@@ -12,4 +12,13 @@
     <string name="referral_code">Referral code</string>
     <string name="next">next</string>
     <string name="username">Username</string>
+    <string name="people_repairing_a_car_image">People repairing a car image</string>
+    <string name="add_your_vehicle">Enter your vehicle details</string>
+    <string name="enter_registration_no">Enter registration no</string>
+    <string name="enter_model">Enter Model</string>
+    <string name="manufacture_date">Manufacture Date:</string>
+    <string name="_09_12_2021">09/12/2021</string>
+    <string name="change">CHANGE</string>
+    <string name="mini_car_image">Mini car image</string>
+    <string name="choose_your_type">Choose your type:</string>
 </resources>
