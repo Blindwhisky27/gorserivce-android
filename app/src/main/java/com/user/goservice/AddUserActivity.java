@@ -91,22 +91,4 @@ public class AddUserActivity extends AppCompatActivity {
         return emailValid;
     }
 }
-//class Taskt extends AsyncTask<Void, Void, Void> {
-//
-//    String records = "", error = "";
-//
-//    @Override
-//    protected Void doInBackground(Void... voids) {
-//
-//        try {
-//            Class.forName("com.mysql.jdbc.Driver");
-//            Connection connection = DriverManager.getConnection("jdbc:mysql://192.168.43.8/goservicedb", "admin", "1234");
-//            Statement statement = connection.createStatement();
-//            ResultSet result = statement.executeQuery("INSERT INTO users VALUES('123','bharath','bharath@gmail.com',9844993858,null,null);");
-//
-//        } catch (Exception e) {
-//
-//        }
-//        return null;
-//    }
-//}
+
