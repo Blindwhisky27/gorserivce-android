@@ -57,7 +57,7 @@ public class AddUserActivity extends AppCompatActivity {
                                     public void onComplete(@NonNull @NotNull Task<Void> task) {
                                         if (task.isSuccessful()) {
                                             Toast.makeText(AddUserActivity.this, "Users details added", Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(getApplicationContext(), NavigationActivity.class)
+                                            Intent intent = new Intent(getApplicationContext(), AddVehicleActivity.class)
                                                     .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                             startActivity(intent);
                                         } else {
