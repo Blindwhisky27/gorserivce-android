@@ -1,4 +1,4 @@
-package com.user.goservice;
+package com.user.goservice.addusers;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +17,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.user.goservice.AddVehicleActivity;
+import com.user.goservice.R;
+import com.user.goservice.UserData;
 
 import org.jetbrains.annotations.NotNull;
 

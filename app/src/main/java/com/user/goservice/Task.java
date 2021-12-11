@@ -9,13 +9,13 @@ import java.sql.Statement;
 
 public class Task extends AsyncTask<Void, Void, Void> {
 
-    String records = "", error = "";
-    String query = "";
-    String retrieve = "get", update = "set";
-    String queryType = retrieve;
-    int flag = 0;
+    public  String records = "", error = "";
+    public  String query = "";
+    public String retrieve = "get", update = "set";
+    public String queryType = retrieve;
+    public  int flag = 0;
 
-    void setQuery(String query, String queryType) {
+    public void setQuery(String query, String queryType) {
         this.query = query;
         this.queryType = queryType;
     }
