@@ -26,4 +26,10 @@
     <string name="orders">Orders</string>
     <string name="account">Account</string>
     <string name="hello_user">Hello, User</string>
+    <string name="general_service">General service</string>
+    <string name="full_service">Full service</string>
+    <string name="custom_service">Custom service</string>
+    <string name="brake_service">Brake service</string>
+    <string name="electric_services">Electric services</string>
+    <string name="wheel_services">Wheel services</string>
 </resources>
