@@ -36,18 +36,18 @@ public class HomeFragment extends Fragment {
             viewpager.setCurrentItem(viewpager.getCurrentItem() + 1);
         }
     };
-    private String userName = " ", vehicleName, hello = "Hello, ", vehicle = "Vehicle: ";
-    private TextView usernameTextView,vehicleTextView;
+    private TextView usernameTextView, vehicleTextView;
 
     @Nullable
     @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
+
         viewpager = v.findViewById(R.id.viewpagerSlider);
         usernameTextView = v.findViewById(R.id.helloTextView);
         vehicleTextView = v.findViewById(R.id.vehicleTextView);
-        ;
+
         imageSlider();
         getUserDetails();
 
@@ -69,11 +69,14 @@ public class HomeFragment extends Fragment {
             ResultSet resultSet = retrieveData.execute().get();
 
             while (resultSet != null && resultSet.next()) {
-                userName = resultSet.getString("username");
-                vehicleName = resultSet.getString("model");
+                String userName = resultSet.getString("username");
+                String vehicleName = resultSet.getString("model");
+
                 vehicleName = vehicleName.concat(" " + resultSet.getString("regno"));
-                Toast.makeText(getContext(), vehicleName, Toast.LENGTH_SHORT).show();
+                String hello = "Hello, ";
                 usernameTextView.setText(String.format("%s%s", hello, userName));
+                String vehicle = "Vehicle: ";
+                vehicleTextView.setText(String.format("%s%s", vehicle, vehicleName));
 
             }
 
