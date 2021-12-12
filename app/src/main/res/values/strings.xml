@@ -32,4 +32,10 @@
     <string name="brake_service">Brake service</string>
     <string name="electric_services">Electric services</string>
     <string name="wheel_services">Wheel services</string>
+    <string name="general_service_icon">General service icon</string>
+    <string name="full_service_icon">Full service icon</string>
+    <string name="custom_service_icon">Custom service icon</string>
+    <string name="brake_service_icon">Brake service icon</string>
+    <string name="electric_service_icon">Electric service icon</string>
+    <string name="wheels_service_icon">Wheels service icon</string>
 </resources>
