@@ -35,11 +35,11 @@ android {
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'androidx.appcompat:design:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
     implementation 'com.google.android.gms:play-services-maps:18.0.0'
     implementation 'org.jetbrains:annotations:15.0'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation files('libs\\mysql-connector-java-5.1.4.jar')
     testImplementation 'junit:junit:'
     implementation 'androidx.multidex:multidex:2.0.1'

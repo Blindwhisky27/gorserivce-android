@@ -1,4 +1,4 @@
-package com.user.goservice;
+package com.user.goservice.addvehicles;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -15,6 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.user.goservice.Database;
+import com.user.goservice.R;
+import com.user.goservice.navigation.NavigationActivity;
 
 import java.util.Calendar;
 import java.util.regex.Pattern;
@@ -86,15 +89,15 @@ public class AddVehicleActivity extends AppCompatActivity implements DatePickerD
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         String vid = FirebaseDatabase.getInstance().getReference().push().getKey();
 
-        com.user.goservice.Task task = new com.user.goservice.Task();
+        Database database = new Database();
         String query = "INSERT INTO vehicles VALUES('" + vid + "','" + uid + "','" + registration + "','" + model + "','" + vehicleType + "','" + manufDate + "');";
-        task.setQuery(query, task.update);
-        task.execute();
+        database.setQuery(query, database.update);
+        database.execute();
 
-        com.user.goservice.Task task1 = new com.user.goservice.Task();
+        Database database1 = new Database();
         String query1 = "UPDATE users SET defaultVehicle = '" + vid + "' WHERE uid='" + uid + "';";
-        task1.setQuery(query1, task.update);
-        task1.execute();
+        database1.setQuery(query1, database.update);
+        database1.execute();
 
 
         Toast.makeText(this, "Added vehicle successfully", Toast.LENGTH_SHORT).show();

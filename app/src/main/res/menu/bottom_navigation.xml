@@ -7,13 +7,13 @@
     <item
         android:id="@+id/nav_cart"
         android:icon="@drawable/ic_shopping_cart"
-        android:title="Cart" />
+        android:title="@string/cart" />
     <item
         android:id="@+id/nav_orders"
         android:icon="@drawable/ic_shopping_bag"
-        android:title="@string/home" />
+        android:title="@string/orders" />
     <item
         android:id="@+id/nav_account"
         android:icon="@drawable/ic_account"
-        android:title="@string/home" />
+        android:title="@string/account" />
 </menu>

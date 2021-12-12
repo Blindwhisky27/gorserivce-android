@@ -1,4 +1,4 @@
-package com.user.goservice;
+package com.user.goservice.Authentication;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,7 +24,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.user.goservice.R;
 import com.user.goservice.addusers.AddUserActivity;
+import com.user.goservice.navigation.NavigationActivity;
 
 import org.jetbrains.annotations.NotNull;
 

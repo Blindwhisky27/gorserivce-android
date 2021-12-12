@@ -22,4 +22,8 @@
     <string name="mini_car_image">Mini car image</string>
     <string name="choose_your_type">Choose your type:</string>
     <string name="home">Home</string>
+    <string name="cart">Cart</string>
+    <string name="orders">Orders</string>
+    <string name="account">Account</string>
+    <string name="hello_user">Hello, User</string>
 </resources>

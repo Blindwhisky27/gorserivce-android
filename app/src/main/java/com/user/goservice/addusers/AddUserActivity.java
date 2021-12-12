@@ -17,9 +17,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.user.goservice.AddVehicleActivity;
+import com.user.goservice.Database;
+import com.user.goservice.addvehicles.AddVehicleActivity;
 import com.user.goservice.R;
-import com.user.goservice.UserData;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -77,12 +77,12 @@ public class AddUserActivity extends AppCompatActivity {
     }
 
     private void updateToMysqlDb(String username, String email, String phoneNumber) {
-        com.user.goservice.Task task = new com.user.goservice.Task();
+        Database database = new Database();
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         String query = "INSERT INTO users VALUES('" + uid + "','" + username + "','" + email + "'," + phoneNumber + ",null,null);";
         Log.e("TEST",query);
-        task.setQuery(query, task.update);
-        task.execute();
+        database.setQuery(query, database.update);
+        database.execute();
 
     }
 

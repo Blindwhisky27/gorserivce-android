@@ -1,4 +1,4 @@
-package com.user.goservice;
+package com.user.goservice.addvehicles;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
