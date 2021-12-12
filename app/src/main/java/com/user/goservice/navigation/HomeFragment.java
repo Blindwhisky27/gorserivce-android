@@ -1,5 +1,6 @@
 package com.user.goservice.navigation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.CompositePageTransformer;
@@ -20,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.user.goservice.GetDataFromDatabase;
 import com.user.goservice.R;
+import com.user.goservice.services.ServicesActivity;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -37,6 +40,7 @@ public class HomeFragment extends Fragment {
         }
     };
     private TextView usernameTextView, vehicleTextView;
+    private CardView brakeServiceCardView;
 
     @Nullable
     @org.jetbrains.annotations.Nullable
@@ -47,7 +51,13 @@ public class HomeFragment extends Fragment {
         viewpager = v.findViewById(R.id.viewpagerSlider);
         usernameTextView = v.findViewById(R.id.helloTextView);
         vehicleTextView = v.findViewById(R.id.vehicleTextView);
-
+        brakeServiceCardView = v.findViewById(R.id.brake_service_card_view);
+        brakeServiceCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), ServicesActivity.class));
+            }
+        });
         imageSlider();
         getUserDetails();
 

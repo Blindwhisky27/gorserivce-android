@@ -38,4 +38,7 @@
     <string name="brake_service_icon">Brake service icon</string>
     <string name="electric_service_icon">Electric service icon</string>
     <string name="wheels_service_icon">Wheels service icon</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="select_services">Select services:</string>
 </resources>
