@@ -16,12 +16,12 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
 public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHolder> {
-    private ArrayList<Service> service;
-    private Context context;
+    private final ArrayList<Service> service;
+
+    private final CartManager cartManager = new CartManager();
 
     public ServiceAdapter(ArrayList<Service> service, Context context) {
         this.service = service;
-        this.context = context;
     }
 
     @NonNull
@@ -30,15 +30,51 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
     public ServiceAdapter.ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.serivce_items, parent, false);
+
+        cartManager.getCartItems();
         return new ViewHolder(view);
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull ServiceAdapter.ViewHolder holder, int position) {
         holder.serviceName.setText(service.get(position).serviceName);
-        String priceString="₹"+ service.get(position).price;
+        String priceString = "₹" + service.get(position).price;
         holder.price.setText(priceString);
+        if (cartManager.cartItems.contains(service.get(position).serviceName)) {
+            holder.add.setVisibility(View.GONE);
+            holder.add.setEnabled(false);
+            holder.remove.setVisibility(View.VISIBLE);
+            holder.remove.setEnabled(true);
+
+        } else {
+            holder.remove.setVisibility(View.GONE);
+            holder.remove.setEnabled(false);
+
+            holder.add.setVisibility(View.VISIBLE);
+            holder.add.setEnabled(true);
+        }
+        holder.add.setOnClickListener(view -> {
+            holder.add.setVisibility(View.GONE);
+            holder.add.setEnabled(false);
+            holder.remove.setVisibility(View.VISIBLE);
+            holder.remove.setEnabled(true);
+
+            cartManager.addToCart(service.get(position).serviceName, service.get(position).price);
+        });
+
+        holder.remove.setOnClickListener(view -> {
+
+            holder.remove.setVisibility(View.GONE);
+            holder.remove.setEnabled(false);
+
+            holder.add.setVisibility(View.VISIBLE);
+            holder.add.setEnabled(true);
+            cartManager.removeFromCart(service.get(position).serviceName);
+
+        });
     }
+
 
     @Override
     public int getItemCount() {

@@ -32,20 +32,18 @@ public class Database extends AsyncTask<Void, Void, Void> {
                     .getConnection("jdbc:mysql://192.168.43.8:3306/goservicedb",
                             "admin", "1234");
             Statement statement = connection.createStatement();
-            System.out.println("Error: Hello");
+
             if (queryType.equals(update)) {
                 flag = statement.executeUpdate(query);
-                Log.e("Error: DATABASE", "Query type is update");
             }
             if (queryType.equals(retrieve)) {
-                Log.e("Error: DATABASE", "Query type is retrieve");
                 resultSet = statement.executeQuery(query);
 
             }
 
 
         } catch (Exception e) {
-            Log.e("Error", e.getLocalizedMessage());
+            Log.e("Error DB", e.getLocalizedMessage());
         }
 
         return null;
