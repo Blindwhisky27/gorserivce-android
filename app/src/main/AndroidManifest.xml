@@ -17,7 +17,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Goservice">
-        <activity android:name=".services.ServicesActivity"></activity>
+        <activity android:name=".services.FullServiceActivity"></activity>
+        <activity android:name=".services.GeneralServiceActivity" />
+        <activity android:name=".services.ServicesActivity" />
         <activity android:name=".addvehicles.AddVehicleActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

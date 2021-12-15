@@ -22,6 +22,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.user.goservice.GetDataFromDatabase;
 import com.user.goservice.R;
+import com.user.goservice.services.FullServiceActivity;
+import com.user.goservice.services.GeneralServiceActivity;
 import com.user.goservice.services.ServicesActivity;
 
 import org.jetbrains.annotations.NotNull;
@@ -40,22 +42,51 @@ public class HomeFragment extends Fragment {
         }
     };
     private TextView usernameTextView, vehicleTextView;
-    private CardView brakeServiceCardView;
+    private CardView brakeServiceCardView, generalServiceCardView, fullServiceCardView,
+            customServiceCardView, electricServiceCardView, wheelServiceCardView;
 
     @Nullable
     @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
+        getViews(v);
 
-        viewpager = v.findViewById(R.id.viewpagerSlider);
-        usernameTextView = v.findViewById(R.id.helloTextView);
-        vehicleTextView = v.findViewById(R.id.vehicleTextView);
-        brakeServiceCardView = v.findViewById(R.id.brake_service_card_view);
+
+        generalServiceCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), GeneralServiceActivity.class));
+            }
+        });
+        fullServiceCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), FullServiceActivity.class));
+            }
+        });
         brakeServiceCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), ServicesActivity.class));
+                startActivity(new Intent(getActivity(), ServicesActivity.class).putExtra("fragment", "brake"));
+            }
+        });
+        wheelServiceCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), ServicesActivity.class).putExtra("fragment", "wheels"));
+            }
+        });
+        electricServiceCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), ServicesActivity.class).putExtra("fragment", "electric"));
+            }
+        });
+        customServiceCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), ServicesActivity.class).putExtra("fragment", "brake"));
             }
         });
         imageSlider();
@@ -63,6 +94,18 @@ public class HomeFragment extends Fragment {
 
 
         return v;
+    }
+
+    private void getViews(View v) {
+        viewpager = v.findViewById(R.id.viewpagerSlider);
+        usernameTextView = v.findViewById(R.id.helloTextView);
+        vehicleTextView = v.findViewById(R.id.vehicleTextView);
+        brakeServiceCardView = v.findViewById(R.id.brake_service_card_view);
+        electricServiceCardView = v.findViewById(R.id.electric_service_card_view);
+        wheelServiceCardView = v.findViewById(R.id.wheel_service_card_view);
+        customServiceCardView = v.findViewById(R.id.custom_service_card_view);
+        generalServiceCardView = v.findViewById(R.id.general_service_card_view);
+        fullServiceCardView = v.findViewById(R.id.full_service_card_view);
     }
 
     private void getUserDetails() {
