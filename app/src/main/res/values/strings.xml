@@ -38,11 +38,28 @@
     <string name="brake_service_icon">Brake service icon</string>
     <string name="electric_service_icon">Electric service icon</string>
     <string name="wheels_service_icon">Wheels service icon</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="select_services">Select services:</string>
     <string name="service">service</string>
     <string name="price">Price:</string>
     <string name="remove">Remove</string>
     <string name="add">Add</string>
+    <string name="services_provided">Services Provided</string>
+    <string name="vehicle_inspection">Vehicle Inspection</string>
+    <string name="complete_vehicle_inspection">Complete vehicle inspection</string>
+    <string name="chain_sprocket_and_gearbox_issues">Chain Sprocket and Gearbox Issues</string>
+    <string name="inspecting_gearbox_and_checking_chainsprocket_with_chain_lubrication">Inspecting gearbox and checking chainsprocket with chain lubrication</string>
+    <string name="ignition_and_carburetor_issues">Ignition and Carburetor issues</string>
+    <string name="inspecting_engine_carburetor_cleansing_and_spark_plug_issues">Inspecting engine, carburetor cleansing and spark plug issues.</string>
+    <string name="includes_general_service">Includes General Service</string>
+    <string name="oil_change_air_filter_change_clutch_brake_and_electrical_issues">Oil change, air filter change, clutch, brake and electrical issues.</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="oil_change">Oil Change</string>
+    <string name="engine_lubrication">Engine Lubrication</string>
+    <string name="electrical_issues">Electrical Issues</string>
+    <string name="ignition_battery_and_checking_fuses">Ignition, battery and checking fuses.</string>
+    <string name="clutch_and_brake_issues">Clutch and brake issues</string>
+    <string name="inspecting_clutch_wire_brake_fluid_and_replacement">Inspecting clutch wire, brake fluid and replacement.</string>
+    <string name="air_filter_change">Air Filter Change</string>
+    <string name="air_filter_cleansing_and_replacement">Air Filter cleansing and replacement.</string>
 </resources>

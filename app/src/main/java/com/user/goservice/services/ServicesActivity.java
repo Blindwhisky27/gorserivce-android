@@ -27,6 +27,7 @@ public class ServicesActivity extends AppCompatActivity {
     public static ArrayList<Service> engineServicesList = new ArrayList<Service>();
     public static ArrayList<Service> gearServicesList = new ArrayList<Service>();
     public static ArrayList<Service> wheelsServicesList = new ArrayList<Service>();
+    private String fragment = "brake";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,8 @@ public class ServicesActivity extends AppCompatActivity {
 
         tabLayout = findViewById(R.id.tabLayout);
         viewPager2 = findViewById(R.id.viewpager2);
-
+        if (getIntent().getStringExtra("fragment") != null)
+            fragment = getIntent().getStringExtra("fragment");
         setTabLayout();
         retrieveServicesFromDatabase();
 
@@ -89,6 +91,22 @@ public class ServicesActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Engine"));
         tabLayout.addTab(tabLayout.newTab().setText("Gears"));
         tabLayout.addTab(tabLayout.newTab().setText("Wheels"));
+
+        switch (fragment) {
+            case "brake":
+                viewPager2.setCurrentItem(0);
+                tabLayout.selectTab(tabLayout.getTabAt(0));
+                break;
+            case "electric":
+                viewPager2.setCurrentItem(1);
+                tabLayout.selectTab(tabLayout.getTabAt(1));
+                break;
+            case "wheels":
+                viewPager2.setCurrentItem(4);
+                tabLayout.selectTab(tabLayout.getTabAt(4));
+                break;
+        }
+
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

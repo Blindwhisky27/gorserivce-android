@@ -33,9 +33,17 @@ public class BrakeFragment extends Fragment {
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_brake, container, false);
         recyclerView = v.findViewById(R.id.brake_recycle_view);
+        ServiceAdapter serviceAdapter = new ServiceAdapter(brakeServicesList, getContext());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
 
+        getServices();
+
+        return v;
+    }
+
+    private void getServices() {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Services");
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.child("breakservice").getChildren()) {
@@ -43,7 +51,7 @@ public class BrakeFragment extends Fragment {
                     System.out.println("SOUT:" + brakeServicesList.get(0).serviceName + " " + brakeServicesList.get(0).price);
                 }
 
-                ServiceAdapter serviceAdapter = new ServiceAdapter(brakeServicesList,getContext());
+                ServiceAdapter serviceAdapter = new ServiceAdapter(brakeServicesList, getContext());
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
 
                 recyclerView.setHasFixedSize(true);
@@ -57,7 +65,6 @@ public class BrakeFragment extends Fragment {
 
             }
         });
-        return v;
     }
 
 
