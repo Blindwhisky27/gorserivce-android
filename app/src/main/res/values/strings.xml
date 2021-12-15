@@ -76,4 +76,12 @@
     <string name="services">Services</string>
     <string name="changeVehicle">CHANGE</string>
     <string name="selected_vehicle">Selected Vehicle</string>
+    <string name="place_order">Place Order</string>
+    <string name="vehicle">Vehicle:</string>
+    <string name="xxxxxxxxxxx">XXXXXXXXXXX</string>
+    <string name="order_summary">Order Summary</string>
+    <string name="schedule_date">Schedule Date:</string>
+    <string name="contact_address">Contact Address:</string>
+    <string name="service_cost">Service Cost:</string>
+    <string name="enter_your_address_for_service">Enter your address for service</string>
 </resources>

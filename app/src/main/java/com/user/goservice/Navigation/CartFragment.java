@@ -35,6 +35,7 @@ public class CartFragment extends Fragment {
     private CartManager cartManager;
     private RecyclerView recyclerView;
     private Button proceedButton;
+    private String vehicle = "Vehicle name", vehicleNumber;
     private ArrayList<Service> cartItems = new ArrayList<>();
     private int totalCost = 0;
 
@@ -63,7 +64,9 @@ public class CartFragment extends Fragment {
         });
 
         addTextView.setOnClickListener(view -> {
-            startActivity(new Intent(getContext(), ServicesActivity.class));
+            startActivity(new Intent(getContext(), ServicesActivity.class)
+                    .putExtra("vehicleName", vehicleName.getText())
+                    .putExtra("vehicleNumber", vehicleNumber));
         });
         return v;
     }
@@ -111,10 +114,13 @@ public class CartFragment extends Fragment {
         getVehicleName.setQuery(query, getVehicleName.retrieve);
         try {
             ResultSet resultSet = getVehicleName.execute().get();
-            String vehicle = "Vehicle name";
-            while (resultSet.next())
-                vehicle = resultSet.getString("model") + " " + resultSet.getString("regno");
-            vehicleName.setText(vehicle);
+
+            while (resultSet.next()) {
+
+                vehicle = resultSet.getString("model");
+                vehicleNumber = resultSet.getString("regno");
+            }
+            vehicleName.setText(String.format("%s %s", vehicle, vehicleNumber));
         } catch (Exception e) {
             Toast.makeText(getContext(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
