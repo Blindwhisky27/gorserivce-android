@@ -2,31 +2,16 @@ package com.user.goservice.services;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.user.goservice.R;
-
-import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
 
 public class ServicesActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
-    public static ArrayList<Service> brakeServicesList = new ArrayList<Service>();
-    public static ArrayList<Service> electricServicesList = new ArrayList<Service>();
-    public static ArrayList<Service> engineServicesList = new ArrayList<Service>();
-    public static ArrayList<Service> gearServicesList = new ArrayList<Service>();
-    public static ArrayList<Service> wheelsServicesList = new ArrayList<Service>();
     private String fragment = "brake";
 
     @Override
@@ -39,45 +24,8 @@ public class ServicesActivity extends AppCompatActivity {
         if (getIntent().getStringExtra("fragment") != null)
             fragment = getIntent().getStringExtra("fragment");
         setTabLayout();
-        retrieveServicesFromDatabase();
-
-    }
-
-    private void retrieveServicesFromDatabase() {
-
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Services");
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.child("breakservice").getChildren()) {
-                    brakeServicesList.add(new Service(dataSnapshot.getKey(), Integer.parseInt(dataSnapshot.getValue().toString())));
-                    System.out.println("SOUT:" + dataSnapshot.getKey() + " " + Integer.parseInt(dataSnapshot.getValue().toString()));
-                }
-                for (DataSnapshot dataSnapshot : snapshot.child("electricservice").getChildren()) {
-                    electricServicesList.add(new Service(dataSnapshot.getKey(), Integer.parseInt(dataSnapshot.getValue().toString())));
-                    System.out.println("SOUT:" + dataSnapshot.getKey() + " " + Integer.parseInt(dataSnapshot.getValue().toString()));
-                }
-                for (DataSnapshot dataSnapshot : snapshot.child("engineservice").getChildren()) {
-                    engineServicesList.add(new Service(dataSnapshot.getKey(), Integer.parseInt(dataSnapshot.getValue().toString())));
-                    System.out.println("SOUT:" + dataSnapshot.getKey() + " " + Integer.parseInt(dataSnapshot.getValue().toString()));
-                }
-                for (DataSnapshot dataSnapshot : snapshot.child("gearservice").getChildren()) {
-                    gearServicesList.add(new Service(dataSnapshot.getKey(), Integer.parseInt(dataSnapshot.getValue().toString())));
-                    System.out.println("SOUT:" + dataSnapshot.getKey() + " " + Integer.parseInt(dataSnapshot.getValue().toString()));
-                }
-                for (DataSnapshot dataSnapshot : snapshot.child("wheelservice").getChildren()) {
-                    wheelsServicesList.add(new Service(dataSnapshot.getKey(), Integer.parseInt(dataSnapshot.getValue().toString())));
-                    System.out.println("SOUT:" + dataSnapshot.getKey() + " " + Integer.parseInt(dataSnapshot.getValue().toString()));
-                }
 
 
-            }
-
-            @Override
-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
-            }
-        });
     }
 
 

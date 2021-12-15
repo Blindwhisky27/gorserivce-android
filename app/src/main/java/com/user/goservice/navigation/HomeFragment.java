@@ -53,42 +53,27 @@ public class HomeFragment extends Fragment {
         getViews(v);
 
 
-        generalServiceCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), GeneralServiceActivity.class));
-            }
-        });
-        fullServiceCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), FullServiceActivity.class));
-            }
-        });
-        brakeServiceCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), ServicesActivity.class).putExtra("fragment", "brake"));
-            }
-        });
-        wheelServiceCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), ServicesActivity.class).putExtra("fragment", "wheels"));
-            }
-        });
-        electricServiceCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), ServicesActivity.class).putExtra("fragment", "electric"));
-            }
-        });
-        customServiceCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), ServicesActivity.class).putExtra("fragment", "brake"));
-            }
-        });
+        generalServiceCardView.setOnClickListener(view ->
+                startActivity(new Intent(getActivity(), GeneralServiceActivity.class)));
+
+        fullServiceCardView.setOnClickListener(view ->
+                startActivity(new Intent(getActivity(), FullServiceActivity.class)));
+
+        brakeServiceCardView.setOnClickListener(view ->
+                startActivity(new Intent(getActivity(), ServicesActivity.class)
+                        .putExtra("fragment", "brake")));
+
+        wheelServiceCardView.setOnClickListener(view ->
+                startActivity(new Intent(getActivity(),
+                        ServicesActivity.class).putExtra("fragment", "wheels")));
+
+        electricServiceCardView.setOnClickListener(view ->
+                startActivity(new Intent(getActivity(), ServicesActivity.class)
+                        .putExtra("fragment", "electric")));
+
+        customServiceCardView.setOnClickListener(view ->
+                startActivity(new Intent(getActivity(), ServicesActivity.class)
+                        .putExtra("fragment", "brake")));
         imageSlider();
         getUserDetails();
 
@@ -121,7 +106,7 @@ public class HomeFragment extends Fragment {
         try {
             ResultSet resultSet = retrieveData.execute().get();
 
-            while (resultSet != null && resultSet.next()) {
+            while (resultSet.next()) {
                 String userName = resultSet.getString("username");
                 String vehicleName = resultSet.getString("model");
 
@@ -130,8 +115,8 @@ public class HomeFragment extends Fragment {
                 usernameTextView.setText(String.format("%s%s", hello, userName));
                 String vehicle = "Vehicle: ";
                 vehicleTextView.setText(String.format("%s%s", vehicle, vehicleName));
-
             }
+
 
         } catch (Exception e) {
             Toast.makeText(getContext(), "Error: " + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
@@ -261,8 +246,7 @@ class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderViewHolder>
                 System.gc();
             }
 
-            //HomeFragment homeFragment = new HomeFragment();
-            // Picasso.with(homeFragment.getContext()).load(sliderItem.image).into(imageView);
+
         }
     }
 
