@@ -36,7 +36,8 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull @NotNull ServiceAdapter.ViewHolder holder, int position) {
         holder.serviceName.setText(service.get(position).serviceName);
-        holder.price.setText(service.get(position).price);
+        String priceString="₹"+ service.get(position).price;
+        holder.price.setText(priceString);
     }
 
     @Override
