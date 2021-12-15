@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".navigation.HomeFragment"
+    tools:context=".Navigation.HomeFragment"
     app:riv_corner_radius="5dp"
     android:scaleType="fitXY"
     android:contentDescription="Onspot-India"

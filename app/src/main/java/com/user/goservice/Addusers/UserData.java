@@ -1,4 +1,4 @@
-package com.user.goservice.addusers;
+package com.user.goservice.Addusers;
 
 public class UserData {
     public String username, email, phoneNumber;

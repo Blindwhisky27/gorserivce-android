@@ -1,4 +1,4 @@
-package com.user.goservice.navigation;
+package com.user.goservice.Navigation;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,9 +22,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.user.goservice.Database.GetDataFromDatabase;
 import com.user.goservice.R;
-import com.user.goservice.services.FullServiceActivity;
-import com.user.goservice.services.GeneralServiceActivity;
-import com.user.goservice.services.ServicesActivity;
+import com.user.goservice.Services.FullServiceActivity;
+import com.user.goservice.Services.GeneralServiceActivity;
+import com.user.goservice.Services.ServicesActivity;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -94,7 +94,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void getUserDetails() {
-        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String uid = FirebaseAuth.getInstance().getUid();
         GetDataFromDatabase retrieveData = new GetDataFromDatabase();
         String query = "SELECT users.username, vehicles.model, vehicles.regno\n" +
                 "FROM users\n" +
@@ -141,11 +141,7 @@ public class HomeFragment extends Fragment {
 
         CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
         compositePageTransformer.addTransformer(new MarginPageTransformer(40));
-        compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                float r = 1 - Math.abs(position);
-            }
+        compositePageTransformer.addTransformer((page, position) -> {
         });
         viewpager.setPageTransformer(compositePageTransformer);
         viewpager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {

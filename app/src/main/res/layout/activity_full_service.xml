@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ede8e8"
-    tools:context=".services.FullServiceActivity">
+    tools:context=".Services.FullServiceActivity">
 
     <LinearLayout
 
@@ -174,5 +174,13 @@
         </androidx.cardview.widget.CardView>
     </ScrollView>
 
-
+    <android.widget.Button
+        android:id="@+id/proceedToCartButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="30dp"
+        android:background="@drawable/stroke_bg"
+        android:text="@string/view_cart"
+        android:textColor="#FFF" />
 </RelativeLayout>

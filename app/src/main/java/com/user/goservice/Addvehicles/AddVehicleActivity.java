@@ -1,4 +1,4 @@
-package com.user.goservice.addvehicles;
+package com.user.goservice.Addvehicles;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.user.goservice.Database.Database;
 import com.user.goservice.R;
-import com.user.goservice.navigation.NavigationActivity;
+import com.user.goservice.Navigation.NavigationActivity;
 
 import java.util.Calendar;
 import java.util.regex.Pattern;

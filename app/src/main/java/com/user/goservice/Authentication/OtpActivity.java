@@ -25,8 +25,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.user.goservice.R;
-import com.user.goservice.addusers.AddUserActivity;
-import com.user.goservice.navigation.NavigationActivity;
+import com.user.goservice.Addusers.AddUserActivity;
+import com.user.goservice.Navigation.NavigationActivity;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -127,6 +127,7 @@ public class OtpActivity extends AppCompatActivity {
                             .putExtra("phoneNumber",PhoneNumber);
                 } else {
                     intent = new Intent(getApplicationContext(), NavigationActivity.class)
+                            .putExtra("Fragment", "Home")
                             .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 }
                 startActivity(intent);

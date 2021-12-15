@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".services.ServicesActivity">
+    tools:context=".Services.ServicesActivity">
 
     <LinearLayout
         android:id="@+id/linearlayout"
@@ -50,4 +50,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolBar" />
+
+    <android.widget.Button
+        android:id="@+id/proceedToCartButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="30dp"
+        android:background="@drawable/stroke_bg"
+        android:text="@string/view_cart"
+        android:textColor="#FFF" />
 </RelativeLayout>

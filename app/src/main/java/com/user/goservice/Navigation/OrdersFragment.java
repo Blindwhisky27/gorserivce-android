@@ -1,4 +1,4 @@
-package com.user.goservice.navigation;
+package com.user.goservice.Navigation;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

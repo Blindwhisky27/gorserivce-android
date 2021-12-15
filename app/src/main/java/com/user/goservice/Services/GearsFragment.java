@@ -1,4 +1,4 @@
-package com.user.goservice.services;
+package com.user.goservice.Services;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

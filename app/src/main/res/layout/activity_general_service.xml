@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ede8e8"
-    tools:context=".services.GeneralServiceActivity">
+    tools:context=".Services.GeneralServiceActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,12 +36,14 @@
     </LinearLayout>
 
     <ScrollView
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/header"
         android:layout_marginTop="0dp">
 
         <androidx.cardview.widget.CardView
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -159,10 +161,21 @@
                     android:textColor="#FFF" />
 
             </RelativeLayout>
+
         </androidx.cardview.widget.CardView>
 
 
     </ScrollView>
+
+    <android.widget.Button
+        android:id="@+id/proceedToCartButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="30dp"
+        android:background="@drawable/stroke_bg"
+        android:text="@string/view_cart"
+        android:textColor="#FFF" />
 
 
 </RelativeLayout>

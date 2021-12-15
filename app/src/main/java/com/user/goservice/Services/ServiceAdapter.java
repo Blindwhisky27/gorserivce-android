@@ -1,4 +1,4 @@
-package com.user.goservice.services;
+package com.user.goservice.Services;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -50,7 +50,6 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
         } else {
             holder.remove.setVisibility(View.GONE);
             holder.remove.setEnabled(false);
-
             holder.add.setVisibility(View.VISIBLE);
             holder.add.setEnabled(true);
         }
@@ -59,7 +58,6 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
             holder.add.setEnabled(false);
             holder.remove.setVisibility(View.VISIBLE);
             holder.remove.setEnabled(true);
-
             cartManager.addToCart(service.get(position).serviceName, service.get(position).price);
         });
 
@@ -67,7 +65,6 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
 
             holder.remove.setVisibility(View.GONE);
             holder.remove.setEnabled(false);
-
             holder.add.setVisibility(View.VISIBLE);
             holder.add.setEnabled(true);
             cartManager.removeFromCart(service.get(position).serviceName);

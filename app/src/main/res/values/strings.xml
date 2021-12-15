@@ -62,4 +62,18 @@
     <string name="inspecting_clutch_wire_brake_fluid_and_replacement">Inspecting clutch wire, brake fluid and replacement.</string>
     <string name="air_filter_change">Air Filter Change</string>
     <string name="air_filter_cleansing_and_replacement">Air Filter cleansing and replacement.</string>
+    <string name="view_cart">View cart</string>
+    <string name="proceed_to_booking">Proceed to booking</string>
+    <string name="rs_0">Rs.0</string>
+    <string name="inclusive_of_service_charge_and_taxes">(Inclusive of service charge and taxes.)</string>
+    <string name="total_cost">Total Cost:</string>
+    <string name="_0">0</string>
+    <string name="service_count">Service count:</string>
+    <string name="price_details">Price Details:</string>
+    <string name="no_item_found_in_cart">No item found in cart</string>
+    <string name="clear">Clear</string>
+    <string name="addplus">+ Add</string>
+    <string name="services">Services</string>
+    <string name="changeVehicle">CHANGE</string>
+    <string name="selected_vehicle">Selected Vehicle</string>
 </resources>

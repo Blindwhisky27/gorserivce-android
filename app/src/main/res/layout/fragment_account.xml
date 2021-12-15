@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ede8e8"
-    tools:context=".navigation.AccountFragment">
+    tools:context=".Navigation.AccountFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

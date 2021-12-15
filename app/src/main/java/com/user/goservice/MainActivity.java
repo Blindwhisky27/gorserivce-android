@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.user.goservice.Authentication.AuthenticationActivity;
-import com.user.goservice.navigation.NavigationActivity;
+import com.user.goservice.Navigation.NavigationActivity;
 
 public class MainActivity extends AppCompatActivity {
 

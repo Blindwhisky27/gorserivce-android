@@ -1,4 +1,4 @@
-package com.user.goservice.navigation;
+package com.user.goservice.Navigation;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -25,10 +25,34 @@ public class NavigationActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnItemSelectedListener(onItemSelectedListener);
+        String fragment = "";
+        if (getIntent().getStringExtra("Fragment") != null)
+            fragment = getIntent().getStringExtra("Fragment");
+        Fragment selectedFragment = new HomeFragment();
+        bottomNavigationView.setSelectedItemId(R.id.nav_home);
+        switch (fragment) {
 
+            case "Cart":
+                selectedFragment = new CartFragment();
+                bottomNavigationView.setSelectedItemId(R.id.nav_cart);
+                break;
+            case "Orders":
+                selectedFragment = new OrdersFragment();
+                bottomNavigationView.setSelectedItemId(R.id.nav_cart);
+                break;
+            case "Account":
+                selectedFragment = new AccountFragment();
+                bottomNavigationView.setSelectedItemId(R.id.nav_account);
+                break;
+
+        }
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, selectedFragment)
+                .commit();
     }
 
-    private final NavigationBarView.OnItemSelectedListener onItemSelectedListener = new NavigationBarView.OnItemSelectedListener() {
+    private final NavigationBarView.OnItemSelectedListener onItemSelectedListener
+            = new NavigationBarView.OnItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
             Fragment selectedFragment = null;

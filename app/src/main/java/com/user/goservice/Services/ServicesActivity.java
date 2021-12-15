@@ -1,12 +1,15 @@
-package com.user.goservice.services;
+package com.user.goservice.Services;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
+import com.user.goservice.Navigation.NavigationActivity;
 import com.user.goservice.R;
 
 public class ServicesActivity extends AppCompatActivity {
@@ -18,7 +21,11 @@ public class ServicesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_services);
-
+        Button viewCartButton = findViewById(R.id.proceedToCartButton);
+        viewCartButton.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext(), NavigationActivity.class)
+                    .putExtra("Fragment", "Cart"));
+        });
         tabLayout = findViewById(R.id.tabLayout);
         viewPager2 = findViewById(R.id.viewpager2);
         if (getIntent().getStringExtra("fragment") != null)

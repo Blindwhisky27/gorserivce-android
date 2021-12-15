@@ -2,9 +2,6 @@ package com.user.goservice.Database;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
-
-import com.user.goservice.navigation.NavigationActivity;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

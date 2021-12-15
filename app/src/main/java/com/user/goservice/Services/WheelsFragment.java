@@ -1,4 +1,4 @@
-package com.user.goservice.services;
+package com.user.goservice.Services;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,21 +22,17 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-
-public class ElectricFragment extends Fragment {
-
+public class WheelsFragment extends Fragment {
     private RecyclerView recyclerView;
-    ArrayList<Service> electricServiceList = new ArrayList<Service>();
-
-    public ElectricFragment() {
-    }
+    ArrayList<Service> wheelsServicesList = new ArrayList<Service>();
 
 
+    @Nullable
+    @org.jetbrains.annotations.Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_electric, container, false);
-        recyclerView = v.findViewById(R.id.electric_recycle_view);
+    public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_wheels, container, false);
+        recyclerView = v.findViewById(R.id.wheels_recycle_view);
         getServices();
 
         return v;
@@ -46,12 +43,11 @@ public class ElectricFragment extends Fragment {
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.child("electricservice").getChildren()) {
-                    electricServiceList.add(new Service(dataSnapshot.getKey(), Integer.parseInt(dataSnapshot.getValue().toString())));
-
+                for (DataSnapshot dataSnapshot : snapshot.child("wheelservice").getChildren()) {
+                    wheelsServicesList.add(new Service(dataSnapshot.getKey(), Integer.parseInt(dataSnapshot.getValue().toString())));
                 }
 
-                ServiceAdapter serviceAdapter = new ServiceAdapter(electricServiceList, getContext());
+                ServiceAdapter serviceAdapter = new ServiceAdapter(wheelsServicesList, getContext());
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
 
                 recyclerView.setHasFixedSize(true);

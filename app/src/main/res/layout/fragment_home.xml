@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:background="#ede8e8"
-    tools:context=".navigation.HomeFragment">
+    tools:context=".Navigation.HomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

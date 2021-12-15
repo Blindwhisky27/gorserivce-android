@@ -1,4 +1,4 @@
-package com.user.goservice.navigation;
+package com.user.goservice.Navigation;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,11 +13,11 @@ import com.user.goservice.R;
 
 import org.jetbrains.annotations.NotNull;
 
-public class CartFragment extends Fragment {
+public class AccountFragment extends Fragment {
     @Nullable
     @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_cart, container, false);
+        return inflater.inflate(R.layout.fragment_account, container, false);
     }
 }

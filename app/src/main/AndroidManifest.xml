@@ -17,10 +17,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Goservice">
-        <activity android:name=".services.FullServiceActivity"></activity>
-        <activity android:name=".services.GeneralServiceActivity" />
-        <activity android:name=".services.ServicesActivity" />
-        <activity android:name=".addvehicles.AddVehicleActivity" />
+        <activity android:name=".Booking.BookingActivity"></activity>
+        <activity android:name=".Services.FullServiceActivity" />
+        <activity android:name=".Services.GeneralServiceActivity" />
+        <activity android:name=".Services.ServicesActivity" />
+        <activity android:name=".Addvehicles.AddVehicleActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -36,8 +37,8 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".addusers.AddUserActivity" />
-        <activity android:name=".navigation.NavigationActivity" />
+        <activity android:name=".Addusers.AddUserActivity" />
+        <activity android:name=".Navigation.NavigationActivity" />
         <activity android:name=".Authentication.OtpActivity" />
         <activity android:name=".Authentication.AuthenticationActivity" />
         <activity android:name=".MainActivity">
