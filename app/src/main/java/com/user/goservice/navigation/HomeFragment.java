@@ -20,7 +20,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.makeramen.roundedimageview.RoundedImageView;
-import com.user.goservice.GetDataFromDatabase;
+import com.user.goservice.Database.GetDataFromDatabase;
 import com.user.goservice.R;
 import com.user.goservice.services.FullServiceActivity;
 import com.user.goservice.services.GeneralServiceActivity;

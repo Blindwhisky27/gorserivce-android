@@ -1,4 +1,4 @@
-package com.user.goservice;
+package com.user.goservice.Database;
 
 import android.os.AsyncTask;
 import android.util.Log;

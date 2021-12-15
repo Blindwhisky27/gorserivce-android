@@ -17,7 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.user.goservice.Database;
+import com.user.goservice.Database.Database;
 import com.user.goservice.addvehicles.AddVehicleActivity;
 import com.user.goservice.R;
 

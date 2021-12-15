@@ -3,8 +3,8 @@ package com.user.goservice.services;
 import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.user.goservice.Database;
-import com.user.goservice.GetDataFromDatabase;
+import com.user.goservice.Database.Database;
+import com.user.goservice.Database.GetDataFromDatabase;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
