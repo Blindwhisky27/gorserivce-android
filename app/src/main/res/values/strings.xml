@@ -84,4 +84,10 @@
     <string name="contact_address">Contact Address:</string>
     <string name="service_cost">Service Cost:</string>
     <string name="enter_your_address_for_service">Enter your address for service</string>
+    <string name="order_details">Order Details</string>
+    <string name="no_orders">No Orders</string>
+    <string name="my_orders">My Orders</string>
+    <string name="status">Status</string>
+    <string name="ordered_on">Ordered on:</string>
+    <string name="booking_id">Booking ID:</string>
 </resources>

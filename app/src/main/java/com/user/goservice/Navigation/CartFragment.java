@@ -52,7 +52,9 @@ public class CartFragment extends Fragment {
         setRecyclerView();
         calculateTotal();
         proceedButton.setOnClickListener(view -> {
-            startActivity(new Intent(getContext(), BookingActivity.class));
+            startActivity(new Intent(getContext(), BookingActivity.class)
+                    .putExtra("vehicle", vehicle)
+                    .putExtra("vehicleNumber", vehicleNumber));
         });
         clearTextView.setOnClickListener(view -> {
             cartManager.removeAll();

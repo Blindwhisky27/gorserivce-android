@@ -135,28 +135,16 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/promoCodeCardView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/userDetailsCardView"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp">
 
-
-            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/priceCardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/promoCodeCardView"
+                android:layout_marginTop="25dp"
+                android:layout_below="@id/userDetailsCardView"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginBottom="75dp"
                 android:visibility="visible"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="5dp">
@@ -292,12 +280,12 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/priceCardView"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginBottom="75dp"
-                android:visibility="visible"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="5dp">
 
@@ -322,6 +310,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/singleView1"
+                        android:layout_marginTop="10dp"
+                        android:layout_margin="15dp"
                         android:hint="@string/enter_your_address_for_service"
                         android:textColorHint="#000000"
                         app:boxStrokeColor="#12213b">
@@ -330,7 +320,6 @@
                             android:id="@+id/addressEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
                             android:inputType="textPostalAddress" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </RelativeLayout>

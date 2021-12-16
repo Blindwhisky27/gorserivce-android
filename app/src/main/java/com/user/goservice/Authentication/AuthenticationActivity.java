@@ -27,12 +27,7 @@ public class AuthenticationActivity extends AppCompatActivity {
         phoneNoTextView = findViewById(R.id.phoneText);
         nextButton = findViewById(R.id.nextButton);
         firebaseAuth = FirebaseAuth.getInstance();
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Authenticate();
-            }
-        });
+        nextButton.setOnClickListener(v -> Authenticate());
     }
 
     private void Authenticate() {

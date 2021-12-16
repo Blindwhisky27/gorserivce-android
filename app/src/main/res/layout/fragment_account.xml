@@ -63,7 +63,7 @@
 
 
                 <TextView
-                    android:id="@+id/AboutTextview"
+                    android:id="@+id/myOrdersTextview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@id/MyVehicleTextView"
@@ -82,7 +82,7 @@
                     android:id="@+id/logoutTextview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@id/AboutTextview"
+                    android:layout_below="@id/myOrdersTextview"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
                     android:background="@drawable/text_view_style"

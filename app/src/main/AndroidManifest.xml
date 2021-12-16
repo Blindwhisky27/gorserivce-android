@@ -7,11 +7,6 @@
          location permissions for the "MyLocation" functionality.
     -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-
 
     <application
         android:allowBackup="true"
@@ -20,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Goservice">
-        <activity android:name=".Booking.MapActivity"></activity>
+        <activity android:name=".Navigation.ProfileActivity"></activity>
         <activity android:name=".Booking.BookingActivity" />
         <activity android:name=".Services.FullServiceActivity" />
         <activity android:name=".Services.GeneralServiceActivity" />
@@ -34,13 +29,6 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/map_key" />
-
-        <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
         <activity android:name=".Addusers.AddUserActivity" />
         <activity android:name=".Navigation.NavigationActivity" />
         <activity android:name=".Authentication.OtpActivity" />
