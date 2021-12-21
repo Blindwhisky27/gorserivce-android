@@ -18,7 +18,7 @@ import com.user.goservice.R;
 import org.jetbrains.annotations.NotNull;
 
 public class AccountFragment extends Fragment {
-    private TextView logoutTextView, myorderstextview, profileTextview;
+    private TextView logoutTextView, myorderstextview, profileTextview, MyVehicleTextView;
 
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class AccountFragment extends Fragment {
         logoutTextView = v.findViewById(R.id.logoutTextview);
         myorderstextview = v.findViewById(R.id.myOrdersTextview);
         profileTextview = v.findViewById(R.id.profileTextview);
+        MyVehicleTextView = v.findViewById(R.id.MyVehicleTextView);
 
         logoutTextView.setOnClickListener(view -> {
             FirebaseAuth.getInstance().signOut();
@@ -38,6 +39,10 @@ public class AccountFragment extends Fragment {
         profileTextview.setOnClickListener(view -> {
             startActivity(new Intent(getContext(), ProfileActivity.class));
         });
+        MyVehicleTextView.setOnClickListener(view -> {
+            startActivity(new Intent(getContext(), VehicleActivity.class));
+        });
+
         return v;
 
     }

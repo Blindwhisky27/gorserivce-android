@@ -20,6 +20,11 @@ public class GetDataFromDatabase extends AsyncTask<Void, Void, ResultSet> {
         this.queryType = queryType;
     }
 
+    public void setQuery(String query) {
+        this.query = query;
+
+    }
+
     @Override
     protected ResultSet doInBackground(Void... voids) {
         try {

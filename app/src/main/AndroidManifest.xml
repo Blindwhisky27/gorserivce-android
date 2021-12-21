@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Goservice">
-        <activity android:name=".Navigation.ProfileActivity"></activity>
+        <activity android:name=".Navigation.VehicleActivity"></activity>
+        <activity android:name=".Navigation.ProfileActivity" />
         <activity android:name=".Booking.BookingActivity" />
         <activity android:name=".Services.FullServiceActivity" />
         <activity android:name=".Services.GeneralServiceActivity" />

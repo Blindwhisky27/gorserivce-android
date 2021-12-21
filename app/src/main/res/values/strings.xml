@@ -90,4 +90,14 @@
     <string name="status">Status</string>
     <string name="ordered_on">Ordered on:</string>
     <string name="booking_id">Booking ID:</string>
+    <string name="usernameprofile">Username:</string>
+    <string name="email">Email:</string>
+    <string name="my_vehicles">My Vehicles</string>
+    <string name="removebutton">remove</string>
+    <string name="set">set</string>
+    <string name="vehicle_register_no">Vehicle Register no:</string>
+    <string name="bike">Bike:</string>
+    <string name="small_car_icon">Small car/bike icon</string>
+    <string name="no_vehicles">No vehicles</string>
+    <string name="add_vehicles">Add vehicles</string>
 </resources>

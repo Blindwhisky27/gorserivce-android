@@ -3,7 +3,6 @@ package com.user.goservice.Addvehicles;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
@@ -17,8 +16,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.user.goservice.Database.Database;
 import com.user.goservice.Navigation.NavigationActivity;
+import com.user.goservice.Navigation.VehicleActivity;
 import com.user.goservice.R;
-
 
 import java.util.Calendar;
 import java.util.regex.Pattern;
@@ -36,50 +35,38 @@ public class AddVehicleActivity extends AppCompatActivity implements DatePickerD
         setContentView(R.layout.activity_add_vehicle);
         getView();
 
-        changeDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DatePickerFragment datePickerFragment = new DatePickerFragment();
-                datePickerFragment.show(getSupportFragmentManager(), "date picker");
-            }
+        changeDate.setOnClickListener(view -> {
+            DatePickerFragment datePickerFragment = new DatePickerFragment();
+            datePickerFragment.show(getSupportFragmentManager(), "date picker");
         });
-        bikeImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vehicleType = "bike";
-                bikeCardView.setBackgroundColor(getResources().getColor(R.color.theme_red));
-                carCardView.setBackgroundColor(getResources().getColor(R.color.light_grey));
-                Toast.makeText(AddVehicleActivity.this, "selected bike", Toast.LENGTH_SHORT).show();
-            }
+        bikeImageView.setOnClickListener(view -> {
+            vehicleType = "bike";
+            bikeCardView.setBackgroundColor(getResources().getColor(R.color.theme_red));
+            carCardView.setBackgroundColor(getResources().getColor(R.color.light_grey));
+            Toast.makeText(AddVehicleActivity.this, "selected bike", Toast.LENGTH_SHORT).show();
         });
-        carImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vehicleType = "car";
-                bikeCardView.setBackgroundColor(getResources().getColor(R.color.light_grey));
-                carCardView.setBackgroundColor(getResources().getColor(R.color.theme_red));
-                Toast.makeText(AddVehicleActivity.this, "selected car", Toast.LENGTH_SHORT).show();
-            }
+        carImageView.setOnClickListener(view -> {
+            vehicleType = "car";
+            bikeCardView.setBackgroundColor(getResources().getColor(R.color.light_grey));
+            carCardView.setBackgroundColor(getResources().getColor(R.color.theme_red));
+            Toast.makeText(AddVehicleActivity.this, "selected car", Toast.LENGTH_SHORT).show();
         });
 
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String model = modelTextView.getText().toString().trim();
-                String registration = registrationNumberTextView.getText().toString().trim().toUpperCase();
-                if (model.isEmpty())
-                    modelTextView.setError("Cannot leave this field blank!");
-                if (registration.isEmpty())
-                    registrationNumberTextView.setError("Cannot leave this field blank!");
-                if (!registration.isEmpty() && !isRegistrationValid(registration))
-                    registrationNumberTextView.setError("Enter a valid registration number!");
-                if (vehicleType.equals("null"))
-                    Toast.makeText(AddVehicleActivity.this, "Pick a vehicle type", Toast.LENGTH_LONG).show();
+        nextButton.setOnClickListener(view -> {
+            String model = modelTextView.getText().toString().trim();
+            String registration = registrationNumberTextView.getText().toString().trim().toUpperCase();
+            if (model.isEmpty())
+                modelTextView.setError("Cannot leave this field blank!");
+            if (registration.isEmpty())
+                registrationNumberTextView.setError("Cannot leave this field blank!");
+            if (!registration.isEmpty() && !isRegistrationValid(registration))
+                registrationNumberTextView.setError("Enter a valid registration number!");
+            if (vehicleType.equals("null"))
+                Toast.makeText(AddVehicleActivity.this, "Pick a vehicle type", Toast.LENGTH_LONG).show();
 
-                if (!model.isEmpty() && !registration.isEmpty() && isRegistrationValid(registration) && !vehicleType.equals("null")) {
+            if (!model.isEmpty() && !registration.isEmpty() && isRegistrationValid(registration) && !vehicleType.equals("null")) {
 
-                    updateVehicleDetails(registration, model, vehicleType, currentDateTextView.getText().toString());
-                }
+                updateVehicleDetails(registration, model, vehicleType, currentDateTextView.getText().toString());
             }
         });
 
@@ -102,9 +89,18 @@ public class AddVehicleActivity extends AppCompatActivity implements DatePickerD
 
 
         Toast.makeText(this, "Added vehicle successfully", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(getApplicationContext(), NavigationActivity.class)
-                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        String activity = getIntent().getStringExtra("Activity");
+        Intent intent;
+        if (activity == null) {
+            intent = new Intent(getApplicationContext(), NavigationActivity.class)
+                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        } else {
+            intent = new Intent(getApplicationContext(), VehicleActivity.class)
+                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
         startActivity(intent);
+
 
     }
 
