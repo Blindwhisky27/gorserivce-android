@@ -5,6 +5,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,7 +20,6 @@ import com.user.goservice.Booking.Order;
 import com.user.goservice.Booking.OrdersAdapter;
 import com.user.goservice.Database.GetDataFromDatabase;
 import com.user.goservice.R;
-import com.user.goservice.Services.ServiceAdapter;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -25,18 +27,23 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class OrdersFragment extends Fragment {
-    private ArrayList<Order> orders = new ArrayList<>();
-    private RecyclerView recyclerView;
+    private final ArrayList<Order> orders = new ArrayList<>();
+
+    private Spinner filterSpinner;
+    private final ArrayList<String> filter = new ArrayList<>();
+
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_orders, container, false);
-        recyclerView=v.findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = v.findViewById(R.id.recyclerView);
+
         getOrdersDetails();
         OrdersAdapter ordersAdapter = new OrdersAdapter(orders, getContext());
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        final RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(ordersAdapter);
+
         return v;
     }
 
@@ -64,6 +71,7 @@ public class OrdersFragment extends Fragment {
                     count = count + resultSet.getInt("price");
                 }
                 orders.get(orders.indexOf(order)).serviceCost = String.valueOf(count);
+
             } catch (Exception e) {
                 Log.e("Error", e.getLocalizedMessage());
             }
