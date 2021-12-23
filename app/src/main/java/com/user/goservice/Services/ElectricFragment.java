@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class ElectricFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    ArrayList<Service> electricServiceList = new ArrayList<Service>();
+    ArrayList<Service> electricServiceList = new ArrayList<>();
 
     public ElectricFragment() {
     }

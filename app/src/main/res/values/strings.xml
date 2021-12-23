@@ -100,4 +100,21 @@
     <string name="small_car_icon">Small car/bike icon</string>
     <string name="no_vehicles">No vehicles</string>
     <string name="add_vehicles">Add vehicles</string>
+    <string name="market_place">     Market place</string>
+    <string name="profile">     Profile</string>
+    <string name="my_vehicle">     My Vehicle</string>
+    <string name="log_out">     Log out</string>
+    <string name="description">Description:</string>
+    <string name="sell_your_vehicle">Sell your vehicle</string>
+    <string name="car_image">Car image</string>
+    <string name="condition">Condition:</string>
+    <string name="licence_no">Licence No:</string>
+    <string name="manuf_date">Manuf. date:</string>
+    <string name="miles">Miles:</string>
+    <string name="watch_in_ar"><u>Watch in AR</u></string>
+    <string name="vehicle_details">Vehicle Details:</string>
+    <string name="contact_seller">Contact seller</string>
+    <string name="seller_details">Seller Details</string>
+    <string name="name">Name:</string>
+    <string name="ph_no">Ph. No:</string>
 </resources>

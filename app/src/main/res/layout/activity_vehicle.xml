@@ -78,7 +78,7 @@
     </ScrollView>
 
     <android.widget.Button
-        android:id="@+id/addVehicleButton"
+        android:id="@+id/contactButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

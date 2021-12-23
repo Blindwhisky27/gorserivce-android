@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.user.goservice">
-    <!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the "MyLocation" functionality.
-    -->
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.camera.ar"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Goservice">
-        <activity android:name=".VehicelSales.VehicelSalesActivity"></activity>
+        <activity android:name=".VehicleSales.ARActivity" />
+        <activity android:name=".VehicleSales.SalesPageActivity" />
+        <activity android:name=".VehicleSales.VehicleSalesActivity" />
         <activity android:name=".Navigation.VehicleActivity" />
         <activity android:name=".Navigation.ProfileActivity" />
         <activity android:name=".Booking.BookingActivity" />
@@ -23,14 +28,6 @@
         <activity android:name=".Services.GeneralServiceActivity" />
         <activity android:name=".Services.ServicesActivity" />
         <activity android:name=".Addvehicles.AddVehicleActivity" />
-        <!--
-             The API key for Google Maps-based APIs is defined as a string resource.
-             (See the file "res/values/google_maps_api.xml").
-             Note that the API key is linked to the encryption key used to sign the APK.
-             You need a different API key for each encryption key, including the release key that is used to
-             sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/.
-        -->
         <activity android:name=".Addusers.AddUserActivity" />
         <activity android:name=".Navigation.NavigationActivity" />
         <activity android:name=".Authentication.OtpActivity" />
@@ -42,6 +39,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.ar.core"
+            android:value="optional" />
     </application>
 
 </manifest>
