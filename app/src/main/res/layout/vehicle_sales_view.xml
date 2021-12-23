@@ -13,7 +13,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="135dp">
+        android:layout_height="150dp">
 
         <ImageView
             android:id="@+id/car_image_view"

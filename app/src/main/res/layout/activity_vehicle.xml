@@ -78,7 +78,7 @@
     </ScrollView>
 
     <android.widget.Button
-        android:id="@+id/contactButton"
+        android:id="@+id/seellButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -10,7 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/contactButton">
+        android:layout_above="@+id/seellButton">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -338,7 +338,7 @@
     </ScrollView>
 
     <android.widget.Button
-        android:id="@+id/contactButton"
+        android:id="@+id/seellButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

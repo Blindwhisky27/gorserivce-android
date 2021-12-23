@@ -2,6 +2,7 @@ package com.user.goservice.Authentication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -83,16 +84,21 @@ public class OtpActivity extends AppCompatActivity {
 
             } else {
                 verifyButton.setEnabled(false);
-                PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCode, code);
-                firebaseAuth.signInWithCredential(credential).addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(OtpActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                        retriveUserData();
-                    } else {
-                        otpTextView.setError("Wrong otp");
-                        verifyButton.setEnabled(true);
-                    }
-                });
+                try {
+                    PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCode, code);
+                    firebaseAuth.signInWithCredential(credential).addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(OtpActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                            retriveUserData();
+                        } else {
+                            otpTextView.setError("Wrong otp");
+                            verifyButton.setEnabled(true);
+                        }
+                    });
+                } catch (Exception e) {
+                    Log.e("Error", e.getLocalizedMessage());
+                }
+
             }
         });
     }

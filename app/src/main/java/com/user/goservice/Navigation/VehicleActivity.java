@@ -32,7 +32,7 @@ public class VehicleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_vehicle);
         recyclerView = findViewById(R.id.recyclerView);
         noVehiclesTextView = findViewById(R.id.noVehiclesTextView);
-        addVehicleButton = findViewById(R.id.contactButton);
+        addVehicleButton = findViewById(R.id.seellButton);
 
         getVehiclesDetails();
         setRecyclerView();

@@ -117,4 +117,6 @@
     <string name="seller_details">Seller Details</string>
     <string name="name">Name:</string>
     <string name="ph_no">Ph. No:</string>
+    <string name="post">Post</string>
+    <string name="upload_image"><u>Upload image</u></string>
 </resources>

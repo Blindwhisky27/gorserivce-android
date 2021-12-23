@@ -15,12 +15,12 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/vehicleSalesRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="15dp" />
     </ScrollView>
 
     <android.widget.Button
-        android:id="@+id/contactButton"
+        android:id="@+id/sellButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
