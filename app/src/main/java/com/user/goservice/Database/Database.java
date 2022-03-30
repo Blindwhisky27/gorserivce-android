@@ -6,6 +6,7 @@ import android.util.Log;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Database extends AsyncTask<Void, Void, Void> {
@@ -15,6 +16,7 @@ public class Database extends AsyncTask<Void, Void, Void> {
     public String queryType = retrieve;
     public int flag = 0;
     public ResultSet resultSet = null;
+    Connection connection;
 
     public void setQuery(String query, String queryType) {
         this.query = query;
@@ -25,8 +27,8 @@ public class Database extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... voids) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager
-                    .getConnection("jdbc:mysql://192.168.43.8:3306/goservicedb",
+            connection = DriverManager
+                    .getConnection("jdbc:mysql://192.168.43.176:3306/goservicedb",
                             "admin", "1234");
             Statement statement = connection.createStatement();
 
@@ -41,6 +43,11 @@ public class Database extends AsyncTask<Void, Void, Void> {
 
         } catch (Exception e) {
             Log.e("Error DB", e.getLocalizedMessage());
+            try {
+                connection.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
         }
 
         return null;

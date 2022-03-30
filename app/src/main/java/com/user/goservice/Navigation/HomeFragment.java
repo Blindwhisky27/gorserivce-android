@@ -3,7 +3,6 @@ package com.user.goservice.Navigation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -102,15 +101,15 @@ public class HomeFragment extends Fragment {
                 "INNER JOIN vehicles ON users.defaultVehicle=vehicles.vid " +
                 "where users.uid='" + uid + "';";
 
-        retrieveData.setQuery(query, retrieveData.retrieve);
 
+        System.out.println(uid);
         try {
+            retrieveData.setQuery(query, retrieveData.retrieve);
             ResultSet resultSet = retrieveData.execute().get();
 
             while (resultSet.next()) {
                 String userName = resultSet.getString("username");
                 String vehicleName = resultSet.getString("model");
-
                 vehicleName = vehicleName.concat(" " + resultSet.getString("regno"));
                 String hello = "Hello, ";
                 usernameTextView.setText(String.format("%s%s", hello, userName));

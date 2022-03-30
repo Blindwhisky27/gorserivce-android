@@ -1,7 +1,6 @@
 package com.user.goservice.VehicleSales;
 
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.widget.Toast;
@@ -82,7 +81,7 @@ public class ARActivity extends AppCompatActivity implements
     public void loadModels() {
         WeakReference<ARActivity> weakActivity = new WeakReference<>(this);
         ModelRenderable.builder()
-                .setSource(this, Uri.parse("https://firebasestorage.googleapis.com/v0/b/goservice-4bbd3.appspot.com/o/car.glb?alt=media&token=7e8a97e5-c656-44bd-a77c-63dfaa3a7ad7"))
+                .setSource(this, R.raw.car)
                 .setIsFilamentGltf(true)
                 .setAsyncLoadEnabled(true)
                 .build()

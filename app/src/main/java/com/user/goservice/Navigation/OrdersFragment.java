@@ -60,8 +60,9 @@ public class OrdersFragment extends Fragment {
         } catch (Exception e) {
             Log.e("error", e.getLocalizedMessage());
         }
+        GetDataFromDatabase getService = new GetDataFromDatabase();
         for (Order order : orders) {
-            GetDataFromDatabase getService = new GetDataFromDatabase();
+
             String query1 = "select * from services where oid=" + order.oid + ";";
             getService.setQuery(query1, database.retrieve);
             try {

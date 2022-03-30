@@ -46,7 +46,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/logo"
-                    android:layout_margin="25dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginBottom="25dp"
                     android:text="@string/usernameprofile"
                     android:textColor="@color/black"
                     android:textSize="16sp"
@@ -68,7 +71,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/nameTextView"
-                    android:layout_margin="25dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="25dp"
                     android:layout_marginBottom="25dp"
                     android:text="@string/email"
                     android:textColor="@color/black"
@@ -84,6 +89,8 @@
                     android:layout_toEndOf="@+id/nameTextView"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
+
+
 
 
             </RelativeLayout>
